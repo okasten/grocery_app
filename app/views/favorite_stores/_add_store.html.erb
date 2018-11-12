@@ -1,0 +1,5 @@
+<%= form_for [@user, @favorite_store] do |f| %>
+	<%= f.collection_select :store_id, @stores, :id, :name %>
+
+	<%= f.submit "Add Store" %>
+<% end %>

@@ -1,5 +1,20 @@
-<%= form_for [@user, @favorite_store] do |f| %>
-	<%= f.collection_select :store_id, @stores, :id, :name %>
+<% if @favorite_store.errors.any? %>
+	<ul>
+		<% @favorite_store.errors.full_messages.each do |error| %>
+			<li><%= error %></li>
+		<% end %>
+	</ul>
+<% end %>
 
-	<%= f.submit "Add Store" %>
+<%= form_for [@user, @favorite_store, @store] do |f| %>
+	<%= f.label :name %><br/>
+	<%= f.text_field :name %><br/>
+
+	<%= f.label :address %><br/>
+	<%= f.text_field :address %><br/>
+
+  <%= f.label :comment %></br>
+  <%= f.text_area :comment %></br>
+
+	<%= f.submit %>
 <% end %>
