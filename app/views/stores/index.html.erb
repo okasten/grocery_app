@@ -1,0 +1,12 @@
+<h1>All Stores</h1>
+
+<%= button_to "Add Store", new_store_path, method: :get %>
+
+<ul>
+	<% @stores.each do |store| %>
+		<li>
+			<%= link_to store.name, store_path(store) %>
+			<%= store.address %>
+		</li>
+	<% end %>
+</ul>

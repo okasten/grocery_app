@@ -1,0 +1,17 @@
+<% if @store.errors.any? %>
+	<ul>
+		<% @store.errors.full_messages.each do |error| %>
+			<li><%= error %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+<%= form_for @store do |f| %>
+	<%= f.label :name %><br/>
+	<%= f.text_field :name %><br/>
+
+	<%= f.label :address %><br/>
+	<%= f.text_field :address %><br/>
+
+	<%= f.submit %>
+<% end %>

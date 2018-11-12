@@ -1,0 +1,14 @@
+<ul>
+	<% @user.stores.each do |store| %>
+		<li>
+			<%= link_to store.name, store_path(store) %>
+			<%= store.address %>
+
+			<%= button_to "Edit Store", edit_store_path(store), method: :get %>
+			<%= button_to "Delete Store", user_favorite_store_path(@user, store), method: :delete %>
+		</li>
+	<% end %>
+</ul>
+
+<%= render 'form' %>
+<%= link_to 'Create Store', new_user_favorite_store_path %>

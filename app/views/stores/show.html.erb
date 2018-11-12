@@ -1,0 +1,5 @@
+<h1><%= @store.name %></h1>
+<li><%= @store.address %></li>
+
+<%= button_to "Edit Store", edit_store_path(@store), method: :get %>
+<%= button_to "Delete Store", @store, method: :delete %>

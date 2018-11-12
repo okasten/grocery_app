@@ -4,5 +4,7 @@ Email: <%= @user.email %>
 Username: <%= @user.username %>
 Password: <%= @user.password %>
 
+<%= link_to "My Stores", user_favorite_stores_path(@user) %>
+
 <%= button_to "Edit User", edit_user_path(@user), method: :get%>
 <%= button_to "Delete User", @user, method: :delete %>
