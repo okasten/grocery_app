@@ -6,15 +6,16 @@
 	</ul>
 <% end %>
 
-<%= form_for [@user, @favorite_store, @store] do |f| %>
-	<%= f.label :name %><br/>
-	<%= f.text_field :name %><br/>
+<%= form_tag user_favorite_stores_path do %>
+	<label>Name: </label><br>
+	<%= text_field_tag :'store[name]' %><br>
 
-	<%= f.label :address %><br/>
-	<%= f.text_field :address %><br/>
+	<label>Address: </label><br>
+	<%= text_field_tag :'store[address]' %><br>
 
-  <%= f.label :comment %></br>
-  <%= f.text_area :comment %></br>
+	<%= hidden_field_tag :'favorite_store[comment]' %><br>
 
-	<%= f.submit %>
+	<%= submit_tag "Submit Store" %>
 <% end %>
+
+
