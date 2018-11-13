@@ -1,0 +1,9 @@
+<h1>Your Lists</h1>
+<ul>
+<% @lists.each do |list| %>
+  <li><%= link_to list.name, list_path(list) %></li>
+<% end %>
+</ul>
+
+
+<%= button_to "Create A New List", new_user_product_list_path(@user) %>

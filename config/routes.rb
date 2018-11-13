@@ -2,13 +2,17 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :users do
   	resources :favorite_stores do
-      resources :stores 
+      resources :stores
     end
+    resources :product_lists
+
   end
+  resources :lists
 
   resources :stores
   resources :products
-  resources :product_lists
-  resources :lists
+  # resources :product_lists
+
+
   resources :store_products
 end

@@ -1,0 +1,7 @@
+<h1><%= @list.name %></h1>
+
+<% @list.store_products.each do |product| %>
+  Item: <%= product.name %>
+  Aisle #: <%= product.aisle %>
+  Price: <%= product.price %>
+<% end %>
