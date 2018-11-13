@@ -1,4 +1,4 @@
-require 'csv'  
+require 'csv'
 
 [1, 2, 3].each do |num|
 	User.create(
@@ -32,6 +32,7 @@ end
 [1, 2, 3].each do |num|
 	ProductList.create(
 		list_id: num,
+		store_id: num,
 		product_id: num,
 		product_amount: num
 		)
@@ -52,4 +53,4 @@ end
 		store_id: num,
 		product_id: num
 		)
-end 
+end
