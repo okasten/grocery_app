@@ -9,10 +9,11 @@ Rails.application.routes.draw do
   end
   resources :lists
 
-  resources :stores
+  resources :stores do
+    get 'products_search', to: 'stores#products_search'
+  end
   resources :products
   # resources :product_lists
-
 
   resources :store_products
 end

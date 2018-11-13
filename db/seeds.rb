@@ -1,3 +1,5 @@
+require 'csv'  
+
 [1, 2, 3].each do |num|
 	User.create(
 		username: "user#{num}",
@@ -14,10 +16,10 @@ end
 		)
 end
 
-['banana', 'apple', 'strawberry'].each do |name|
-	Product.create(
-		name: name
-		)
+csv_text = File.read('db/products.csv')
+csv = CSV.parse(csv_text, :headers => true)
+csv.each do |row|
+	Product.create!(row.to_hash)
 end
 
 [1, 2, 3].each do |num|
@@ -50,4 +52,4 @@ end
 		store_id: num,
 		product_id: num
 		)
-end
+end 

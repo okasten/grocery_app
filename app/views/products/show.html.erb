@@ -1,16 +1,22 @@
 <h1><%= @product.name.capitalize %></h1>
+<h3>Calories per Serving: <%= @product.calories %></h3>
 
 Stores found:
 <ul>
-  <% @product.stores.each do |store| %>
-    <li><%= link_to store.name, store_path(store) %>
-    <%= store.address %></li>
-  <% end %>
+	<% @product.stores.each do |store| %>
+		<li>
+			<%= link_to store.name, store_path(store) %>
+			<%= store.address %>
+		</li>
+	<% end %>
 </ul>
 
 Lists belongs to:
 <ul>
-<% @product.lists.each do |list| %>
-  <li><%= link_to list.name, list_path(list) %></li>
-<% end %>
+	<% @product.lists.each do |list| %>
+		<li><%= link_to list.name, list_path(list) %></li>
+	<% end %>
 </ul>
+
+Add to a Store:
+<%= render 'add_store' %>

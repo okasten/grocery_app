@@ -1,13 +1,11 @@
 class ProductListsController < ApplicationController
+  before_action :find_user
 
-  before_action :find_user, only: [:index, :show, :new, :update]
   def index
-    @user = User.find(params[:user_id])
     @lists = @user.lists
   end
 
   def show
-    @user = User.find(params[:user_id])
     @list = List.find(params[:id])
   end
 

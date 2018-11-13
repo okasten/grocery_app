@@ -1,3 +1,7 @@
+require 'nokogiri'
+require 'open-uri'
+require 'json'
+
 class StoresController < ApplicationController
 	before_action :find_store, only: [:show, :edit, :update, :destroy]
 
@@ -19,6 +23,12 @@ class StoresController < ApplicationController
 	end
 
 	def show
+		@store_products = @store.store_products
+	end
+
+	def products_search
+		@product_name = params[:product]
+		@products = Product.where("name LIKE ?", "%#{@product_name}%")
 	end
 
 	def edit
