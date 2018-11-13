@@ -2,6 +2,9 @@
 	<%= f.label :list_id %>
 	<%= f.collection_select :list_id, @lists, :id, :name %><br/>
 
+	<%= f.label :store_id %>
+	<%= f.collection_select :store_id, @stores, :id, :name %><br/>
+
 	<%= f.label :product_amount %> #
 	<%= f.number_field :product_amount %><br/>
 

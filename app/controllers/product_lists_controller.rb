@@ -28,6 +28,6 @@ class ProductListsController < ApplicationController
   end
 
   def product_list_params
-    params.require(:product_list).permit(:list_id, :product_id, :product_amount)
+    params.require(:product_list).permit(:list_id, :store_id, :product_id, :product_amount)
   end
 end
