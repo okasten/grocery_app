@@ -1,0 +1,15 @@
+<h1>Search Results For <%= @product_name %></h1>
+
+<ul>
+	<% @products.each do |product| %>
+		<li>
+			<%= link_to product.name, user_product_path(@user, product) %>
+      <%= form_for [:user, :list, @product_list] do |f| %>
+        <%= f.number_field :product_amount, value: 1 %>
+        <%= f.collection_select :store_id, @stores, :id, :name %>
+        <%= f.hidden_field :product_id, value: product.id %>
+        <%= f.submit "Add to List" %>
+      <% end %>
+		</li>
+	<% end %>
+</ul>

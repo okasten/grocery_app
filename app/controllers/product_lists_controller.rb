@@ -14,11 +14,25 @@ class ProductListsController < ApplicationController
   end
 
   def create
-    @product_list = @user.lists.find(params[:product_list][:list_id]).product_list.build(product_list_params)
-    if @product_list.save
-      redirect_to user_product_path(@user)
+
+    if !params[:list_id]
+      @product = Product.find(params[:product_list][:product_id])
+      @product_list = @user.lists.find(params[:product_list][:list_id]).product_list.build(product_list_params)
+      if @product_list.save
+        redirect_to user_product_path(@user, @product)
+      else
+        render user_product_path(@user)
+      end
     else
-      render user_product_path(@user)
+      @product = Product.find(params[:product_list][:product_id])
+      @product_list = @user.lists.find(params[:list_id]).product_list.build(add_item_params)
+      @list = List.find(params[:list_id])
+      # byebug
+      if @product_list.save
+        redirect_to user_list_path(@user, @list)
+      else
+        render user_lists_path(@user)
+      end
     end
   end
 
@@ -26,6 +40,10 @@ class ProductListsController < ApplicationController
 
   def find_user
     @user = User.find(params[:user_id])
+  end
+
+  def add_item_params
+    {list_id: params[:list_id], product_id: params[:product_list][:product_id], product_amount: params[:product_list][:product_amount], store_id: params[:product_list][:store_id]}
   end
 
   def product_list_params

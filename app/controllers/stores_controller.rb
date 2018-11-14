@@ -20,7 +20,7 @@ class StoresController < ApplicationController
 			redirect_to @store
 		else
 			render :new
-		end 
+		end
 	end
 
 	def show
@@ -45,7 +45,7 @@ class StoresController < ApplicationController
 
 	def destroy
 		@store.destroy
-		redirect_to stores_path
+		redirect_to user_stores_path
 	end
 
 	private

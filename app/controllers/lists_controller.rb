@@ -1,8 +1,8 @@
 class ListsController < ApplicationController
 
-  before_action :find_user, only: [:index, :new, :create]
+  before_action :find_user, only: [:index, :new, :create, :show, :products_search]
   def index
-    @lists = List.all
+    @lists = @user.lists
   end
 
   def new
@@ -21,6 +21,15 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+  end
+
+  def products_search
+    # byebug
+    @stores = @user.stores
+    @product_list = ProductList.new
+    @list = List.find(params[:list_id])
+    @product_name = params[:product]
+    @products = Product.where("name LIKE ?", "%#{@product_name}%")
   end
 
   private
