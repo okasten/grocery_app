@@ -1,7 +1,7 @@
 <ul>
 	<% @user.stores.each do |store| %>
 		<li>
-			<%= link_to store.name, store_path(store) %>
+			<%= link_to store.name, user_store_path(@user, store) %>
 			<%= store.address %>
 
 			<%= button_to "Delete Store", user_favorite_store_path(@user, store), method: :delete %>

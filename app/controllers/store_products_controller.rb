@@ -11,8 +11,9 @@ class StoreProductsController < ApplicationController
 	def create
 		@product = Product.find(params[:store_product][:product_id])
 		@store_product = StoreProduct.new(store_product_params)
+		@user = User.find(params[:user_id])
 		if @store_product.save
-			redirect_to @product
+			redirect_to user_product_path(@user, @product)
 		end
 		# else
 		# 	render :new

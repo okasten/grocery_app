@@ -5,7 +5,7 @@
   <%= f.text_field :list_id %></br>
 
   Choose an Existing <%= f.label :store_id %>
-  <%= f.collection_select :store_id, @user.stores.all, :id, :name %></br>
+  <%= f.collection_select :store_id, Store.all, :id, :name %></br>
 
   <%= f.submit "Create New List" %>
 

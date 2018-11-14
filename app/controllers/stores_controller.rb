@@ -4,6 +4,7 @@ require 'json'
 
 class StoresController < ApplicationController
 	before_action :find_store, only: [:show, :edit, :update, :destroy]
+	before_action :find_user, only: [:show, :products_search]
 
 	def index
 		@stores = Store.all
@@ -48,11 +49,15 @@ class StoresController < ApplicationController
 	end
 
 	private
-	def store_params
-		params.require(:store).permit(:name, :address)
-	end
+		def store_params
+			params.require(:store).permit(:name, :address)
+		end
 
-	def find_store
-		@store = Store.find(params[:id])
-	end
+		def find_store
+			@store = Store.find(params[:id])
+		end
+
+		def find_user
+			@user = User.find(params[:user_id])
+		end
 end

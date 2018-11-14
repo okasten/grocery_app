@@ -1,5 +1,5 @@
 class ProductListsController < ApplicationController
-  before_action :find_user, except: [:create]
+  before_action :find_user
 
   def index
     @lists = @user.lists
@@ -14,13 +14,11 @@ class ProductListsController < ApplicationController
   end
 
   def create
-    # @product = Product.find(params[:product_list][:product_id])
-    @product_list = ProductList.new(product_list_params)
-    byebug
+    @product_list = @user.lists.find(params[:product_list][:list_id]).product_list.build(product_list_params)
     if @product_list.save
-      redirect_to user_product_lists_path
+      redirect_to user_product_path(@user)
     else
-      render :new
+      render user_product_path(@user)
     end
   end
 
