@@ -4,16 +4,16 @@ Rails.application.routes.draw do
   	resources :favorite_stores do
       resources :stores
     end
-    resources :product_lists
+    resources :lists
   end
-  
-  resources :lists
+
+  resources :product_lists
+
 
   resources :stores do
     get 'products_search', to: 'stores#products_search'
   end
   resources :products
-  resources :product_lists
 
   resources :store_products
 end

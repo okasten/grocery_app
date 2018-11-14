@@ -14,10 +14,13 @@ class ProductListsController < ApplicationController
   end
 
   def create
-    @product = Product.find(params[:product_list][:product_id])
+    # @product = Product.find(params[:product_list][:product_id])
     @product_list = ProductList.new(product_list_params)
+    byebug
     if @product_list.save
-      redirect_to @product
+      redirect_to user_product_lists_path
+    else
+      render :new
     end
   end
 

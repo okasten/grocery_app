@@ -1,6 +1,8 @@
 <h1>All of your lists!</h1>
 <ul>
 <% @lists.each do |list| %>
-  <li><%= link_to list.name, list_path(list) %></li>
+  <li><%= link_to list.name, user_list_path(@user, list) %></li>
 <% end %>
 </ul>
+
+<%= button_to "Create A New List", new_user_list_path, method: :get %>

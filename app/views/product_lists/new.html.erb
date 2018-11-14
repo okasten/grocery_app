@@ -1,0 +1,12 @@
+<h1>New List</h1>
+
+<%= form_for [@user, @product_list] do |f| %>
+  Name of <%= f.label :list_id %>
+  <%= f.text_field :list_id %></br>
+
+  Choose an Existing <%= f.label :store_id %>
+  <%= f.collection_select :store_id, @user.stores.all, :id, :name %></br>
+
+  <%= f.submit "Create New List" %>
+
+<% end %>

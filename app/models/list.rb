@@ -10,7 +10,7 @@ class List < ApplicationRecord
 	def name_with_store
 		# byebug
 		@product_list = ProductList.find_by(list_id: self.id)
-		byebug
+		# byebug
 		"#{self.name} - #{Store.find(@product_list.store_id).name}"
 	end
 end
