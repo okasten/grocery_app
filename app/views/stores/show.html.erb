@@ -1,5 +1,17 @@
 <h1><%= @store.name %></h1>
-<li><%= @store.address %></li>
+<h3><%= @store.address %></h3>
+
+<ul>
+	<% @store.products.each do |product| %>
+		<li>
+			<%= link_to product.name, user_product_path(@user, product) %><br/>
+			Price: $<%= @store.price(product) %><br/>
+			Aisle: <%= @store.aisle(product) %>
+		</li>
+	<% end %>
+</ul>
+
+
 
 <%= form_tag user_store_products_search_path(@user, @store), method: :get do %>
 	Product <%= text_field_tag :product %>

@@ -21,6 +21,7 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+    # byebug
   end
 
   def products_search

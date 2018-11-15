@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :store_products
   end
 
-  resources :sessions
+  resources :sessions, only: [:new, :create]
+  delete '/sessions', to: 'sessions#destroy', as: 'session'
   root "sessions#new"
 end

@@ -3,10 +3,10 @@
 	<%= f.collection_select :store_id, @stores, :id, :name %><br/>
 
 	<%= f.label :aisle %> #
-	<%= f.number_field :aisle %><br/>
+	<%= f.number_field :aisle, min: 1, max: 99 %><br/>
 
 	<%= f.label :price %> $
-	<%= f.number_field :price, :step => 0.01 %><br/>
+	<%= f.number_field :price, :step => 0.01, min: 0.01 %><br/>
 
 	<%= f.hidden_field :product_id, value: @product.id %>
 

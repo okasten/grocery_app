@@ -21,13 +21,13 @@ class ProductListsController < ApplicationController
       if @product_list.save
         redirect_to user_product_path(@user, @product)
       else
-        render user_product_path(@user)
+        
+        redirect_to user_product_path(@user, @product)
       end
     else
       @product = Product.find(params[:product_list][:product_id])
       @product_list = @user.lists.find(params[:list_id]).product_list.build(add_item_params)
       @list = List.find(params[:list_id])
-      # byebug
       if @product_list.save
         redirect_to user_list_path(@user, @list)
       else

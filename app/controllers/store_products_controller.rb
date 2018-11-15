@@ -14,10 +14,9 @@ class StoreProductsController < ApplicationController
 		@user = User.find(params[:user_id])
 		if @store_product.save
 			redirect_to user_product_path(@user, @product)
+		else
+			redirect_to user_product_path(@user, @product)
 		end
-		# else
-		# 	render :new
-		# end
 	end
 
 	private
