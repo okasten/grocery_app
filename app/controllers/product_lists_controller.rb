@@ -17,7 +17,7 @@ class ProductListsController < ApplicationController
 
     if !params[:list_id]
       @product = Product.find(params[:product_list][:product_id])
-      @product_list = @user.lists.find(params[:product_list][:list_id]).product_list.build(product_list_params)
+      @product_list = @user.lists.find(params[:product_list][:list_id]).product_lists.build(product_list_params)
       if @product_list.save
         redirect_to user_product_path(@user, @product)
       else
@@ -26,7 +26,7 @@ class ProductListsController < ApplicationController
       end
     else
       @product = Product.find(params[:product_list][:product_id])
-      @product_list = @user.lists.find(params[:list_id]).product_list.build(add_item_params)
+      @product_list = @user.lists.find(params[:list_id]).product_lists.build(add_item_params)
       @list = List.find(params[:list_id])
       if @product_list.save
         redirect_to user_list_path(@user, @list)
