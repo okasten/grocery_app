@@ -1,6 +1,5 @@
 class SessionsController < ApplicationController
 	def new
-		# byebug
 	end
 
 	def create

@@ -4,7 +4,8 @@
     <title>GroceryApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link rel="Stylesheet" href="style.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -12,40 +13,41 @@
 
   <body>
     <header>
-      <nav class='container'>
-        <ul>
+      <nav class='navbar is-primary' role='navigation' aria-label='main navigation'>
+        <div class='navbar-menu'>
           <% if @logged_in %>
-            <li>
-              Logged in as <%= @user.username %>
-            </li>
 
-            <li>
-              <%= link_to "My Lists", user_lists_path(@user) %>
-            </li>
-
-            <li>
-              <%= link_to "My Stores", user_favorite_stores_path(@user) %>
-            </li>
-
-            <li>
+            <div class='navbar-item'>
               <%= link_to "My Account", user_path(@user) %>
-            </li>
+            </div>
 
-            <li>
+            <div class='navbar-item'>
+              <%= link_to "My Lists", user_lists_path(@user) %>
+            </div>
+
+            <div class='navbar-item'>
+              <%= link_to "My Stores", user_favorite_stores_path(@user) %>
+            </div>
+
+            <div class='navbar-item'>
               <%= link_to "Log Out", session_path, method: :delete %>
-            </li>
+            </div>
+
+            <div class='navbar-end'>
+              Logged in as <%= @user.username %>
+            </div>
 
           <% else %>
-            <li>
+            <a class='navbar-item'>
               <%= link_to "Register", new_user_path %>
-            </li>
+            </a>
 
-            <li>
+            <a class='navbar-item'>
               <%= link_to "Log In", new_session_path %>
-            </li>
+            </a>
             
           <% end %>
-        </ul>
+        </div>
       </nav>
     </header>
     <%= yield %>

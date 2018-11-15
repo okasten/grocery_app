@@ -1,11 +1,12 @@
-<h1>Welcome, <%= @user.name %></h1>
+<div class='container is-fluid'>
+	<div class='hero-body'>
+		<h1 class='title'>Welcome, <%= @user.name %></h1><br/>
 
-Email: <%= @user.email %>
-Username: <%= @user.username %>
+		<h2 class='subtitle'> Email: <%= @user.email %> </h2><br/>
+		<h2 class='subtitle'> Username: <%= @user.username %> </h2><br/>
 
+	</div>
 
-<%= link_to "My Stores", user_favorite_stores_path(@user) %>
-<%= link_to "My Lists", user_lists_path(@user) %>
-
-<%= button_to "Edit User", edit_user_path(@user), method: :get%>
-<%= button_to "Delete User", @user, method: :delete %>
+	<a class='button is-rounded is-warning' <%= link_to "Edit User", edit_user_path(@user), method: :get %>
+	<a class='button is-rounded is-danger' <%= link_to "Delete User", @user, method: :delete %>
+</div>
