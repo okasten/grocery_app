@@ -17,4 +17,7 @@ Rails.application.routes.draw do
     resources :products
     resources :store_products
   end
+
+  resources :sessions
+  # root "sessions#new"
 end

@@ -10,6 +10,24 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <nav>
+        <ul>
+          <% if @logged_in %>
+            <li>
+              Logged in as <%= @user.username %>
+            </li>
+
+            <li>
+              <%= link_to "Log Out", session_path, method: :delete %>
+            </li>
+
+          <% else %>
+            <%= link_to "Log In", new_session_path %>
+
+          <% end %>
+        </ul>
+      </nav>
+    </header>
   </body>
 </html>
