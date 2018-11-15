@@ -1,19 +1,19 @@
 require 'csv'
 
 User.create(
-	username: "KevyWevy",
+	username: "kevywevy",
 	email: "kevywevy@example.com",
 	password: "test123",
 	name: "Kevin"
 )
 User.create(
-	username: "DaveTheWave",
+	username: "davethewave",
 	email: "davethewave@example.com",
 	password: "test123",
 	name: "David"
 )
 User.create(
-	username: "OliviaBolivia",
+	username: "oliviabolivia",
 	email: "oliviabolivia@example.com",
 	password: "test123",
 	name: "Olivia"

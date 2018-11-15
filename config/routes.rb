@@ -19,5 +19,5 @@ Rails.application.routes.draw do
   end
 
   resources :sessions
-  # root "sessions#new"
+  root "sessions#new"
 end
