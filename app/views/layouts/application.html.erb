@@ -19,6 +19,18 @@
             </li>
 
             <li>
+              <%= link_to "My Lists", user_lists_path(@user) %>
+            </li>
+
+            <li>
+              <%= link_to "My Stores", user_favorite_stores_path(@user) %>
+            </li>
+
+            <li>
+              <%= link_to "My Account", user_path(@user) %>
+            </li>
+
+            <li>
               <%= link_to "Log Out", session_path, method: :delete %>
             </li>
 
