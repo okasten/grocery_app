@@ -1,7 +1,7 @@
 class StoreProductsController < ApplicationController
 
 	def index
-		
+
 	end
 
 	def new

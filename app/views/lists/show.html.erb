@@ -1,9 +1,15 @@
 <h1><%= @list.name %></h1>
 <ul>
 	<% @list.products.each do |product| %>
-		<li><%= link_to product.name, user_product_path(@user, product) %> <%= @list.find_product_amount(product) %></li>
+		<li><%= link_to product.name, user_product_path(@user, product) %>
+		<%= @list.find_product_amount(product) %>
+		<%= @list.aisle_and_price(product) %>
+		<%= button_to "Delete Item", user_product_list_path(@user, @list, product_id: product.id), method: :delete %></li>
 	<% end %>
+
 </ul>
+
+
 
 <%= form_tag user_list_products_search_path(@user, @list), method: :get do %>
 	Product Search <%= text_field_tag :product %>

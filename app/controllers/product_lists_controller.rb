@@ -21,7 +21,7 @@ class ProductListsController < ApplicationController
       if @product_list.save
         redirect_to user_product_path(@user, @product)
       else
-        
+
         redirect_to user_product_path(@user, @product)
       end
     else
@@ -34,6 +34,12 @@ class ProductListsController < ApplicationController
         render user_lists_path(@user)
       end
     end
+  end
+
+  def destroy
+    @product_list = ProductList.find_by(product_id: params[:product_id], list_id: params[:id])
+    @product_list.destroy
+    redirect_to user_list_path(@user)
   end
 
   private

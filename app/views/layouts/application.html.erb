@@ -14,7 +14,7 @@
   <body>
     <header>
       <nav class='navbar is-primary' role='navigation' aria-label='main navigation'>
-        <div class='navbar-menu'>
+        <div class='navbar-menu has-text-black'>
           <% if @logged_in %>
 
             <div class='navbar-item'>
@@ -45,7 +45,7 @@
             <a class='navbar-item'>
               <%= link_to "Log In", new_session_path %>
             </a>
-            
+
           <% end %>
         </div>
       </nav>
