@@ -7,5 +7,6 @@ class ProductsController < ApplicationController
 		@store_product = StoreProduct.new
 		@stores = Store.all
 		@lists = @user.lists
+
 	end
 end

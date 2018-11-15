@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::Base
+	before_action :logged_in?
+
 	private
 		def log_in_user(user)
 			session[:user_id] = user.id
