@@ -9,8 +9,12 @@ INSTALLATION INSTRUCTIONS
 
 * Ruby on Rails [5.2.1]
 
-* Make sure to fork `https://github.com/ws903/grocery_app` it to your own git repository, and clone it onto your local machine. `git clone [your repository link]`
+* Go to: `https://github.com/ws903/grocery_app`
 
-* Make sure to `bundle install`, `rails db:migrate`, `rails db:seed`
+* Fork the repository to your own git repository, and clone it onto your local machine. 
 
-* run `rails s`, and on your browser go to `http://localhost:3000`.  `GROCER-E` should be up and running.
+* Open your terminal and run `git clone [your repository link]`
+
+* Make sure to run `bundle install`, `rails db:migrate`, `rails db:seed`
+
+* Run `rails s`, then open your browser and go to `http://localhost:3000`.  `GROCER-E` should be up and running.
