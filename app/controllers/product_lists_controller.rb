@@ -31,7 +31,7 @@ class ProductListsController < ApplicationController
       if @product_list.save
         redirect_to user_list_path(@user, @list)
       else
-        render user_lists_path(@user)
+        redirect_to user_lists_path(@user)
       end
     end
   end
