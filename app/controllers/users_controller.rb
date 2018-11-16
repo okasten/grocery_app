@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    redirect_to user_path(@user) unless logged_in? && authorized?(@user.id)
   end
 
   def edit
@@ -37,11 +37,11 @@ class UsersController < ApplicationController
   end
 
   private
-  def user_params
-    params.require(:user).permit(:name, :username, :email, :password)
-  end
+    def user_params
+      params.require(:user).permit(:name, :username, :email, :password)
+    end
 
-  def find_user
-    @user = User.find(params[:id])
-  end
+    def find_user
+      @user = User.find(logged_in_user_id)
+    end
 end

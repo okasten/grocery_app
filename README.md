@@ -1,24 +1,13 @@
-# README
+# GROCER-E
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a grocery app to make your grocery shopping experience more efficient!
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby on Rails [5.2.1]
 
-* System dependencies
+* Make sure to fork `https://github.com/ws903/grocery_app` it to your own git repository, and clone it onto your local machine. `git clone [your repository link]`
 
-* Configuration
+* Make sure to `bundle install`, `rails db:migrate`, `rails db:seed`
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* run `rails s`, and on your browser go to `http://localhost:3000`.  `GROCER-E` should be up and running.
