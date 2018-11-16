@@ -2,7 +2,10 @@
 
 This is a grocery app to make your grocery shopping experience more efficient!
 
-Things you may want to cover:
+This app allows you to add your favorite grocery stores to your account, search/add products to a specific store (including Aisle and Price information).  It also allows you to create grocery lists that tell you where each of your products exist in specific grocery stores to make your grocery shopping experience hassle free.
+
+
+INSTALLATION INSTRUCTIONS
 
 * Ruby on Rails [5.2.1]
 
