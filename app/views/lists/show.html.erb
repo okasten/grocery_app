@@ -1,17 +1,28 @@
-<h1><%= @list.name %></h1>
-<ul>
-	<% @list.products.each do |product| %>
-		<li><%= link_to product.name, user_product_path(@user, product) %>
-		<%= @list.find_product_amount(product) %>
-		<%= @list.aisle_and_price(product) %>
-		<%= button_to "Delete Item", user_product_list_path(@user, @list, product_id: product.id), method: :delete %></li>
+<div class='container is-fluid'>
+
+	<div class='hero-body'>
+		<h2 class='title'><%= @list.name %></h2>
+		<p class='menu-label'>Belongs To: </p>
+		<ul class='menu-list'>
+			<% @list.product_lists.each do |pl| %>
+				<li><%= pl.store.name %></li>
+			<% end %>
+		</ul><br/>
+
+		<ul>
+			<% @list.products.each do |product| %>
+				<li><%= link_to product.name, user_product_path(@user, product) %>
+				<%= @list.find_product_amount(product) %>
+				<%= @list.aisle_and_price(product) %>
+				<%= button_to "Delete Item", user_product_list_path(@user, @list, product_id: product.id), method: :delete %></li>
+			<% end %>
+
+		</ul>
+	</div>
+
+	<%= form_tag user_list_products_search_path(@user, @list), method: :get do %>
+		Product Search <%= text_field_tag :product %>
+		<%= submit_tag 'Search' %>
 	<% end %>
 
-</ul>
-
-
-
-<%= form_tag user_list_products_search_path(@user, @list), method: :get do %>
-	Product Search <%= text_field_tag :product %>
-	<%= submit_tag 'Search' %>
-<% end %>
+</div>

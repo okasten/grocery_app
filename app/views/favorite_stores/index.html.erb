@@ -1,15 +1,26 @@
-<h1>My Favorite Stores</h1>
+<div class='container is-fluid'>
+	<div class='hero-body'>
 
-<ul>
-	<% @user.stores.each do |store| %>
-		<li>
-			<%= link_to store.name, user_store_path(@user, store) %>
-			<%= store.address %>
+		<h2 class='title'>My Favorite Grocery Stores</h2>
 
-			<%= button_to "Delete Store", user_favorite_store_path(@user, store), method: :delete %>
-		</li>
-	<% end %>
-</ul>
+		<ul>
+			<% @user.stores.each do |store| %>
+				<li>
+					<%= link_to store.name, user_store_path(@user, store) %>
+					<%= store.address %><br/>
+				</li>
 
-<%= render 'add_store' %>
-<%= link_to 'Create Store', new_user_favorite_store_path %>
+				<a class='button is-rounded is-danger' href="<%= user_favorite_store_path(@user, store) %>" data-method="delete">
+					Delete Store
+				</a>
+
+			<% end %>
+		</ul>
+	</div>
+
+	<%= render 'add_store' %>
+	<a class='button is-rounded is-primary' href="<%= new_user_favorite_store_path %>" >
+		Create Store
+	</a>
+
+</div>

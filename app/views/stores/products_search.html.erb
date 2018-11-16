@@ -1,9 +1,15 @@
-<h1>Search Results For <%= @product_name %></h1>
+<div class='container is-fluid'>
+	<div class='hero-body'>
 
-<ul>
-	<% @products.each do |product| %>
-		<li>
-			<%= link_to product.name, user_product_path(@user, product) %>
-		</li>
-	<% end %>
-</ul>
+		<h1 class='title'>Search Results For <%= @product_name %></h1>
+
+		<ul class='menu-list'>
+			<% @products.each do |product| %>
+				<li>
+					<%= link_to product.name, user_product_path(@user, product) %>
+				</li>
+			<% end %>
+		</ul>
+
+	</div>
+</div>

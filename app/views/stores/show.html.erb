@@ -1,22 +1,33 @@
-<h1><%= @store.name %></h1>
-<h3><%= @store.address %></h3>
+<div class='container is-fluid'>
+	<div class='hero-body'>
 
-<ul>
-	<% @store.products.each do |product| %>
-		<li>
-			<%= link_to product.name, user_product_path(@user, product) %><br/>
-			Price: $<%= @store.price(product) %><br/>
-			Aisle: <%= @store.aisle(product) %>
-		</li>
+		<h2 class='title'><%= @store.name %></h2>
+		<h3><%= @store.address %></h3>
+
+		<ul>
+			<% @store.products.each do |product| %>
+				<li>
+					<%= link_to product.name, user_product_path(@user, product) %><br/>
+					Price: $<%= @store.price(product) %><br/>
+					Aisle: <%= @store.aisle(product) %>
+				</li>
+			<% end %>
+		</ul>
+
+	</div>
+
+
+
+	<%= form_tag user_store_products_search_path(@user, @store), method: :get do %>
+		Product <%= text_field_tag :product %>
+		<%= submit_tag 'Search' %>
 	<% end %>
-</ul>
 
+	<a class='button is-rounded is-warning' href="<%= edit_user_store_path(@store) %>" >
+		Edit Store
+	</a><br/>
+	<a class='button is-rounded is-danger' href="<%= user_store_path(@store) %>" data-method='delete' >
+		Delete Store
+	</a>
 
-
-<%= form_tag user_store_products_search_path(@user, @store), method: :get do %>
-	Product <%= text_field_tag :product %>
-	<%= submit_tag 'Search' %>
-<% end %>
-
-<%= button_to "Edit Store", edit_user_store_path(@store), method: :get %>
-<%= button_to "Delete Store", user_store_path(@store), method: :delete %>
+</div>

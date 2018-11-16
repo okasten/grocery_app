@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class='has-background-grey-lighter'>
   <head>
     <title>GroceryApp</title>
     <%= csrf_meta_tags %>
@@ -13,23 +13,29 @@
 
   <body>
     <header>
-      <nav class='navbar is-primary' role='navigation' aria-label='main navigation'>
-        <div class='navbar-menu has-text-black'>
+      <nav class='navbar is-dark' role='navigation' aria-label='main navigation'>
+        <div class="navbar-brand">
+          <div class="navbar-item">
+            <%= link_to "GROCER-E", user_path(@user), {style: 'color:#6eb530;font-weight:bold;'} %>
+          </div>
+        </div>
+
+        <div class='navbar-menu has-text-white'>
           <% if @logged_in %>
             <div class='navbar-item'>
-              <%= link_to "My Account", user_path(@user), {style: 'color:#000000;'} %>
+              <%= link_to "My Account", user_path(@user), {style: 'color:#ffffff;'} %>
             </div>
 
             <div class='navbar-item'>
-              <%= link_to "My Lists", user_lists_path(@user), {style: 'color:#000000;'} %>
+              <%= link_to "My Lists", user_lists_path(@user), {style: 'color:#ffffff;'} %>
             </div>
 
             <div class='navbar-item'>
-              <%= link_to "My Stores", user_favorite_stores_path(@user), {style: 'color:#000000;'} %>
+              <%= link_to "My Stores", user_favorite_stores_path(@user), {style: 'color:#ffffff;'} %>
             </div>
 
             <div class='navbar-item'>
-              <%= link_to "Log Out", session_path, {method: :delete, style: 'color:#000000;'} %>
+              <%= link_to "Log Out", session_path, {method: :delete, style: 'color:#ffffff;'} %>
             </div>
 
             <div class='navbar-end'>
@@ -38,11 +44,11 @@
 
           <% else %>
             <div class='navbar-item'>
-              <%= link_to "Register", new_user_path, {style: 'color:#000000;'} %>
+              <%= link_to "Register", new_user_path, {style: 'color:#ffffff;'} %>
             </div>
 
             <div class='navbar-item'>
-              <%= link_to "Log In", new_session_path, {style: 'color:#000000;'} %>
+              <%= link_to "Log In", new_session_path, {style: 'color:#ffffff;'} %>
             </div>
 
           <% end %>

@@ -1,27 +1,32 @@
+<div class='container is-fluid'>
+	<div class='hero-body'>
 
+		<h2 class='title'><%= @product.name.capitalize %></h2>
+		<h3 class='subtitle'>Calories per Serving: <%= @product.calories %></h3>
 
-<h1><%= @product.name.capitalize %></h1>
-<h3>Calories per Serving: <%= @product.calories %></h3>
+		Stores found:
+		<ul>
+			<% @product.stores.each do |store| %>
+				<li>
+					<%= link_to store.name, user_store_path(@user, store) %>
+					<%= store.address %>
+				</li>
+			<% end %>
+		</ul>
 
-Stores found:
-<ul>
-	<% @product.stores.each do |store| %>
-		<li>
-			<%= link_to store.name, user_store_path(@user, store) %>
-			<%= store.address %>
-		</li>
-	<% end %>
-</ul>
+		Lists belongs to:
+		<ul>
+			<% @product.lists.each do |list| %>
+				<li><%= link_to list.name, user_list_path(@user, list) %></li>
+			<% end %>
+		</ul>
 
-Lists belongs to:
-<ul>
-	<% @product.lists.each do |list| %>
-		<li><%= link_to list.name, user_list_path(@user, list) %></li>
-	<% end %>
-</ul>
+	</div>
 
-Add to a Store:
-<%= render 'add_store' %><br/>
+	Add to a Store:
+	<%= render 'add_store' %><br/>
 
-Add to a List:
-<%= render 'add_list' %>
+	Add to a List:
+	<%= render 'add_list' %>
+
+</div>
