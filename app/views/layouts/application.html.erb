@@ -16,21 +16,20 @@
       <nav class='navbar is-primary' role='navigation' aria-label='main navigation'>
         <div class='navbar-menu has-text-black'>
           <% if @logged_in %>
-
             <div class='navbar-item'>
-              <%= link_to "My Account", user_path(@user) %>
+              <%= link_to "My Account", user_path(@user), {style: 'color:#000000;'} %>
             </div>
 
             <div class='navbar-item'>
-              <%= link_to "My Lists", user_lists_path(@user) %>
+              <%= link_to "My Lists", user_lists_path(@user), {style: 'color:#000000;'} %>
             </div>
 
             <div class='navbar-item'>
-              <%= link_to "My Stores", user_favorite_stores_path(@user) %>
+              <%= link_to "My Stores", user_favorite_stores_path(@user), {style: 'color:#000000;'} %>
             </div>
 
             <div class='navbar-item'>
-              <%= link_to "Log Out", session_path, method: :delete %>
+              <%= link_to "Log Out", session_path, {method: :delete, style: 'color:#000000;'} %>
             </div>
 
             <div class='navbar-end'>
@@ -38,13 +37,13 @@
             </div>
 
           <% else %>
-            <a class='navbar-item'>
-              <%= link_to "Register", new_user_path %>
-            </a>
+            <div class='navbar-item'>
+              <%= link_to "Register", new_user_path, {style: 'color:#000000;'} %>
+            </div>
 
-            <a class='navbar-item'>
-              <%= link_to "Log In", new_session_path %>
-            </a>
+            <div class='navbar-item'>
+              <%= link_to "Log In", new_session_path, {style: 'color:#000000;'} %>
+            </div>
 
           <% end %>
         </div>

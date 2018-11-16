@@ -7,6 +7,11 @@
 
 	</div>
 
-	<a class='button is-rounded is-warning' <%= link_to "Edit User", edit_user_path(@user), method: :get %>
-	<a class='button is-rounded is-danger' <%= link_to "Delete User", @user, method: :delete %>
+	<a class='button is-rounded is-warning' href="<%= edit_user_path(@user) %>" data-method="get">
+		Edit User
+	</a>
+	<a class='button is-rounded is-danger' href="<%= @user %>" data-method="delete">
+		Delete User
+	</a>
+
 </div>
